@@ -1,0 +1,32 @@
+"A subprogram to check the win state for gary
+:"A variable to store the winner ID
+:0->W
+:"Check the lines stemming from the top left corner
+:If L1(1)=0
+:Goto 1
+:If L1(1)=L1(2) and L1(2)=L1(3) 
+or L1(1)=L1(4) and L1(4)=L1(7)
+:L1(1)->W
+:"Check the lines stemming from the center
+:If L1(1)=0
+:Lbl 1
+:If L1(5)=0
+:Goto 2
+:If L1(1)=L1(5) and L1(5)=L1(9) 
+or L1(3)=L1(5) and L1(5)=L1(7)
+or L1(2)=L1(5) and L1(5)=L1(8)
+or L1(4)=L1(5) and L1(5)=L1(6)
+:L1(5)->W
+:If L1(9)=0
+:"Check the lines stemming from the bottom right
+:If L1(1)=0
+:Goto 3
+:Lbl 2
+:If L1(7)=L1(8) and L1(8)=L1(9) 
+or L1(3)=L1(6) and L1(6)=L1(9)
+:L1(9)->W
+:Lbl 3
+:"Check if the board is full without a winner, store -1
+:If W=0 and min(L1)!=0
+:-1->W
+:"W acts as return value, as vars are global

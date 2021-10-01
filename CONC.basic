@@ -1,0 +1,7 @@
+:Input "Flavour Vol: ",X
+:Input "DESIRED CONC: ",X
+:100->C
+:X*Z/(C-Z)->Y
+:Disp "REQUIRED"
+:Disp "FREEBASE: ",Y
+
