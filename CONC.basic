@@ -1,7 +1,27 @@
-:Input "Flavour Vol: ",X
-:Input "DESIRED CONC: ",X
-:100->C
-:X*Z/(C-Z)->Y
-:Disp "REQUIRED"
-:Disp "FREEBASE: ",Y
-
+:Input "CONCENTRATION A?",A
+:Input "CONCENTRATION B?",B
+:Input "DESIRED CONC?   ",C
+:"RATIO
+:(C-A)/(B-C)->R
+:Menu("--MODE--","SET VOL A",1,"SET VOL B",2,"SET TOTAL VOL",3)
+:Lbl 1
+:Input "VOLUME OF A?    ",X
+:X*R->Y
+:Goto 4 
+:Lbl 2 
+:Input "VOLUME OF B?    ",Y 
+:Y/R->X
+:Goto 4
+:Lbl 3 
+:Input "FINAL VOLUME?   ",Z 
+:(Z*C)/(R*B+A)->X
+:Z-X->Y
+:Lbl 4 
+:X+Y->Z
+:ClrHome
+:Disp "Volume A:"
+:Disp X
+:Disp "VOlume B:"
+:Disp Y
+:Disp "TOTAL VOLUME:"
+:Disp Z
